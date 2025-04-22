@@ -2,141 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Therapy Hub</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f7f3eb, #d9e5dd);
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #6e8c91;
-      color: #fdf3df;
+      padding: 0;
+      overflow-x: hidden;
     }
-    header {
-      background: linear-gradient(to bottom, #fdf3df, #6e8c91);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: #223030;
-    }
-    nav a {
-      margin-left: 2rem;
-      text-decoration: none;
-      color: #223030;
-      font-weight: bold;
-    }
-    .hero {
-      background-color: #6e8c91;
+
+    .header {
       text-align: center;
-      padding: 3rem 2rem;
+      padding: 2rem;
+      animation: fadeZoom 1.5s ease forwards;
+      opacity: 0;
     }
-    .hero img {
-      max-width: 300px;
-      margin-bottom: 1rem;
-    }
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      color: #fdf3df;
-    }
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    .features {
-      background-color: #6e8c91;
-      padding: 3rem 2rem;
-    }
-    .features h2 {
-      text-align: center;
-      color: #fdf3df;
-      font-size: 2rem;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background-color: #c69c6d;
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-      color: #223030;
-    }
-    .card img {
-      width: 100%;
-      height: auto;
-      max-height: 200px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-    }
-    footer {
-      background-color: #fdf3df;
-      color: #223030;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
+
+    @keyframes fadeZoom {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
       }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 2rem;
+    }
+
+    .gallery img {
+      width: 220px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      background-color: #f4f4f4;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: slideFadeIn 1s ease forwards;
+    }
+
+    .gallery img:nth-child(1) { animation-delay: 0.3s; }
+    .gallery img:nth-child(2) { animation-delay: 0.5s; }
+    .gallery img:nth-child(3) { animation-delay: 0.7s; }
+    .gallery img:nth-child(4) { animation-delay: 0.9s; }
+    .gallery img:nth-child(5) { animation-delay: 1.1s; }
+
+    @keyframes slideFadeIn {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .background-details {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      opacity: 0.05;
+      background-image: url('assets/soccer-texture.png'); /* optional pattern image */
+      height: 100%;
+      background-size: cover;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>The Therapy Hub</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <img src="81ef6a66-be3f-4f0b-912d-70c067b86e3a.jpeg" alt="Mental Health and Soccer Illustration">
-    <h2>Welcome to Your Mental Health Journey</h2>
-    <p>
-      Welcome to The Therapy Hub — your space for support, growth, and self-discovery. Here, you’ll find a variety of resources, tools, and activities designed to help you understand, manage, and nurture your mental health in ways that work best for you.
-      Whether you’re looking for guidance through tough moments, daily self-care strategies, or simply a place to feel seen and supported, The Therapy Hub is here for you — however that may look. We’re all about meeting you where you are and helping you move forward, one step at a time.
-    </p>
-  </section>
+  <div class="header">
+    <h1>Welcome to The Therapy Hub</h1>
+    <p>Explore resources that support your mental health journey through sport and reflection.</p>
+  </div>
 
-  <section class="features">
-    <h2>Explore What We Offer</h2>
-    <div class="card-grid">
-      <div class="card">
-        <img src="Therapy Hub Pt 1.jpeg" alt="Articles Image">
-        <h3>Articles</h3>
-        <p>Explore topics like body image, relationships, anxiety, and more — written to support your journey with relatable, accessible insights.</p>
-      </div>
-      <div class="card">
-        <img src="Therapy Hub Pt 2.jpeg" alt="Worksheets Image">
-        <h3>Worksheets</h3>
-        <p>Engage with interactive, printable tools that help build coping skills, clarify goals, and manage stress — all designed with student athletes in mind.</p>
-      </div>
-      <div class="card">
-        <img src="A_soft,_digital_illustration_depicts_a_young_femal.png" alt="Resources Image">
-        <h3>Resources</h3>
-        <p>Discover trusted support networks, crisis lines, and wellness tools to help guide you through challenging times.</p>
-      </div>
-    </div>
-  </section>
+  <div class="gallery">
+    <img src="assets/Screenshot-1.jpeg" alt="Thought bubble">
+    <img src="assets/Moods-1.jpeg" alt="Mood range 1">
+    <img src="assets/Screenshot-2.jpeg" alt="Mood range 2">
+    <img src="assets/Articles.jpeg" alt="Article layout">
+    <img src="assets/Screenshot-3.jpeg" alt="Student exploring resources">
+  </div>
 
-  <footer>
-    &copy; 2025 The Therapy Hub | All Rights Reserved
-  </footer>
+  <div class="background-details"></div>
+
 </body>
 </html>
